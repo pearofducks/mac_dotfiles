@@ -6,12 +6,12 @@ export EDITOR="vim"
 export MANPAGER="less -X"
 export HISTFILESIZE=$HISTSIZE
 export HISTCONTROL=ignoredups
-export HISTIGNORE="ls:ls *:la:cd:cd *"
+export HISTIGNORE="ls:ls *:la"
 
-alias startdev='VBoxManage startvm dev --type headless'
-alias stopdev='VBoxManage controlvm dev poweroff'
 alias uiosync='rsync -avz -e ssh UIO/ pear:./storage/uio/'
 # command changes
+alias b='bundle exec'
+alias v='vim'
 alias grep='grep --color=auto'
 alias more='less'
 alias df='df -h'
@@ -43,3 +43,6 @@ alias lm='la | more'
 cd() {
   builtin cd "${@:-$HOME}" && ls
 }
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
